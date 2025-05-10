@@ -25,6 +25,8 @@
 # c. Realizar depósitos.
 # d. Salir
 
+inventario = []
+
 def menu():
     print("1. Agregar Producto")
     print("2. Mostrar Inventario")
@@ -40,3 +42,9 @@ def agregar_producto(inventario):
     inventario[nombre] = {'cantidad': cantidad, 'precio': precio}
     print(f"Producto {nombre} agregado al inventario.")
     
+def buscar_producto():
+    nombre = input('Ingrese el nombre del producto a buscar: ')
+    if nombre in inventario:
+        print(f'El producto {nombre} esta en el inventario')
+    else:
+        print(f'No se encontro el producto {nombre}.')
