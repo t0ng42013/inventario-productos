@@ -25,7 +25,10 @@
 # c. Realizar depósitos.
 # d. Salir
 
-inventario = []
+
+
+
+inventario = {}
 
 def menu():
     print("1. Agregar Producto")
@@ -33,7 +36,7 @@ def menu():
     print("3. Buscar Producto")
     print("4. Eliminar Producto")
     print("5. Salir")
-    return int(input("Seleccione una opción: "))
+    return int(input("Seleccione una opción: "))  #Esto no valida si ingresa una letra se rompe
 
 def agregar_producto(inventario):
     nombre = input("Ingrese el nombre del producto: ")
@@ -48,3 +51,20 @@ def buscar_producto():
         print(f'El producto {nombre} esta en el inventario')
     else:
         print(f'No se encontro el producto {nombre}.')
+
+def eliminar_producto():
+    nombre = input('Ingrese el producto a eliminar: ')
+    if nombre in inventario:
+        inventario.remove(nombre)
+        print(f'Producto {nombre} eliminado')
+    else:
+        print('No se encontro el producto ' + { nombre })
+
+def mostrar_inventario():
+    if inventario:
+        for i, producto in enumerate(inventario, 1):
+            print(f'{i}. {producto}')
+    else:
+        print('Invetario vacio')
+
+
